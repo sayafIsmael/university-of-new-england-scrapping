@@ -25,7 +25,7 @@ async function start() {
                     if (!jsonLinkData.includes(courseLink)) {
                         console.log(courseName);
 
-                        let courseSaved = await scrapCourse.fetchCourseDetails(courseLink, courseName)
+                        let courseSaved = await scrapCourse.fetchCourseDetails(courseLink, courseName.trim())
                         if (courseSaved) {
                             jsonLinkData.push(courseLink)
                             fs.writeFile('linkFetched.json', JSON.stringify(jsonLinkData), (err) => {
